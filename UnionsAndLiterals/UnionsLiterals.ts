@@ -95,3 +95,41 @@ function move(direction: string, distance: number){
 // test cases
 move('up', 10)
 move('left', 5)
+
+
+// instance of examples
+class Dog {
+    bark() {
+        console.log("Woof! 🐶");
+    }
+}
+
+class Cat {
+    meow() {
+        console.log("Meow! 🐱");
+    }
+}
+
+function makeSound(animal: Dog | Cat) {
+    if (animal instanceof Dog) {
+        animal.bark();  // Narrowed down to Dog
+    } else if (animal instanceof Cat) {
+        animal.meow();  // Narrowed down to Cat
+    }
+}
+
+// Example usage:
+const myDog = new Dog();
+const myCat = new Cat();
+
+makeSound(myDog); // Output: Woof! 🐶
+makeSound(myCat); // Output: Meow! 🐱
+
+// using in instead of (instanceof)
+function makeSound0(animal: Dog | Cat) {
+    if ('bark' in animal) {
+        animal.bark();  // Narrowed down to Dog
+    } else if ('meow' in animal) {
+        animal.meow();  // Narrowed down to Cat
+    }
+}
