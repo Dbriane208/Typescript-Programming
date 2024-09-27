@@ -119,3 +119,70 @@ acceptAllNonPrimitives(() => {});
 acceptAllNonPrimitives(1);
 acceptAllNonPrimitives("hello");
 acceptAllNonPrimitives(true);
+
+
+/*
+Exercises
+*/ 
+
+// Using an Index Signature for Dynamic Keys
+const scores: {
+    [score: string] : number
+} = {};
+
+scores.math = 95;
+scores.english = 90;
+scores.science = 85;
+
+// Default Properties with Dynamic Keys
+interface Scores {
+    // [score: string] : number, We can also add it here
+    math: number,
+    english: number,
+    science: number
+}
+
+interface ExtendedScores extends Scores {
+    [score: string] : number
+}
+
+const scoresA: ExtendedScores = {
+    math: 80,
+    english: 70,
+    science: 98,
+    "french": 89
+};
+
+scoresA.athletics = 100;
+scoresA.spanish = 70;
+
+// Restricting Object Keys With Records
+type Environment = "development" | "production" | "staging";
+
+type retn = {
+    apiBaseUrl: string,
+    timeout: number
+};
+
+type Configurations = Record<Environment,retn>;
+
+const configurations: Configurations = {
+    development: {
+        apiBaseUrl: "http://localhost:8080",
+        timeout: 5000
+    },
+    production: {
+        apiBaseUrl: "https://api.example",
+        timeout: 10000
+    },
+    staging: {
+        apiBaseUrl: "https://staging.example.com",
+        timeout: 8000
+    },
+    // Has squiggly lines because it's not in the Union
+    // notAllowed: {
+    //     apiBaseUrl: "https://staging.example.com",
+    //     timeout: 8000
+    // }
+}
+
