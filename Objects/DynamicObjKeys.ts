@@ -116,9 +116,9 @@ acceptAllNonPrimitives([]);
 acceptAllNonPrimitives(() => {});
 
 // But error on primitives
-acceptAllNonPrimitives(1);
-acceptAllNonPrimitives("hello");
-acceptAllNonPrimitives(true);
+// acceptAllNonPrimitives(1);
+// acceptAllNonPrimitives("hello");
+// acceptAllNonPrimitives(true);
 
 
 /*
@@ -184,5 +184,5 @@ const configurations: Configurations = {
     //     apiBaseUrl: "https://staging.example.com",
     //     timeout: 8000
     // }
-}
+};
 

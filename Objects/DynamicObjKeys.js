@@ -59,6 +59,41 @@ acceptAllNonPrimitives({});
 acceptAllNonPrimitives([]);
 acceptAllNonPrimitives(() => { });
 // But error on primitives
-acceptAllNonPrimitives(1);
-acceptAllNonPrimitives("hello");
-acceptAllNonPrimitives(true);
+// acceptAllNonPrimitives(1);
+// acceptAllNonPrimitives("hello");
+// acceptAllNonPrimitives(true);
+/*
+Exercises
+*/
+// Using an Index Signature for Dynamic Keys
+const scores = {};
+scores.math = 95;
+scores.english = 90;
+scores.science = 85;
+const scoresA = {
+    math: 80,
+    english: 70,
+    science: 98,
+    "french": 89
+};
+scoresA.athletics = 100;
+scoresA.spanish = 70;
+const configurations = {
+    development: {
+        apiBaseUrl: "http://localhost:8080",
+        timeout: 5000
+    },
+    production: {
+        apiBaseUrl: "https://api.example",
+        timeout: 10000
+    },
+    staging: {
+        apiBaseUrl: "https://staging.example.com",
+        timeout: 8000
+    },
+    // Has squiggly lines because it's not in the Union
+    // notAllowed: {
+    //     apiBaseUrl: "https://staging.example.com",
+    //     timeout: 8000
+    // }
+};
